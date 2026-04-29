@@ -2,12 +2,23 @@ from prefect import task, flow, get_run_logger
 import time as ttime
 from tiled.client import from_uri
 from bluesky_tiled_plugins.writing.validator import validate
+from dotenv import load_dotenv
+import os
 
 BEAMLINE_OR_ENDSTATION = "!!! Set the endstation or beamline_TLA here !!!"
 
 
+def get_api_key_from_env(api_key=None):
+    with open("/srv/container.secret", "r") as secrets:
+        load_dotenv(stream=secrets)
+    api_key = os.environ["TILED_API_KEY"]
+    return api_key
+
+
 @task(retries=2, retry_delay_seconds=10)
 def get_run(uid, api_key=None):
+    if not api_key:
+        api_key = get_api_key_from_env()
     cl = from_uri("https://tiled.nsls2.bnl.gov", api_key=api_key)
     run = cl[f"{BEAMLINE_OR_ENDSTATION}/raw"][uid]
     return run
@@ -16,6 +27,8 @@ def get_run(uid, api_key=None):
 # SQL database-backed - remove if this does not exist on the beamline
 @task(retries=2, retry_delay_seconds=10)
 def get_run_migration(uid, api_key=None):
+    if not api_key:
+        api_key = get_api_key_from_env()
     cl = from_uri("https://tiled.nsls2.bnl.gov", api_key=api_key)
     run = cl[f"{BEAMLINE_OR_ENDSTATION}/migration"][uid]
     return run
