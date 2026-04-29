@@ -5,7 +5,7 @@ from bluesky_tiled_plugins.writing.validator import validate
 from dotenv import load_dotenv
 import os
 
-BEAMLINE_OR_ENDSTATION = "!!! Set the endstation or beamline_TLA here !!!"
+BEAMLINE_OR_ENDSTATION = "qas"
 
 
 def get_api_key_from_env(api_key=None):
