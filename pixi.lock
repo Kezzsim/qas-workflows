@@ -429,7 +429,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-ng-2.3.2-hceb46e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.25.0-py313h54dd161_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: git+https://github.com/Kezzsim/qxas.git?rev=5ba5c76#5ba5c76babc8815b9558d305b3097dece9ccf03e
+      - pypi: git+https://github.com/NSLS2/qas-xas.git?rev=137dbd8#137dbd81fb003d20aaef53c26d11769ba69ac54b
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
   sha256: fe51de6107f9edc7aa4f786a70f4a883943bc9d39b3bb7307c04c41410990726
@@ -6146,9 +6146,9 @@ packages:
   - pkg:pypi/xarray?source=hash-mapping
   size: 994025
   timestamp: 1764974555156
-- pypi: git+https://github.com/Kezzsim/qxas.git?rev=5ba5c76#5ba5c76babc8815b9558d305b3097dece9ccf03e
+- pypi: git+https://github.com/NSLS2/qas-xas.git?rev=137dbd8#137dbd81fb003d20aaef53c26d11769ba69ac54b
   name: xas
-  version: 0.post68+g5ba5c76
+  version: 0.post69+g137dbd8
 - conda: https://conda.anaconda.org/conda-forge/linux-64/xkeyboard-config-2.46-hb03c661_0.conda
   sha256: aa03b49f402959751ccc6e21932d69db96a65a67343765672f7862332aa32834
   md5: 71ae752a748962161b4740eaff510258
