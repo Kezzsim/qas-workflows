@@ -18,7 +18,7 @@ def end_of_run_workflow(stop_doc, api_key=None, dry_run=False):
     data_validation(uid, api_key=api_key, dry_run=dry_run)
     # Processing goes here
     run = get_run(uid, api_key=api_key)
-    run_processed = get_run_processed(uid)
+    run_processed = get_run_processed(uid, api_key=api_key)
     process_interpolate_bin_with_tiled(
         run, run_processed
     )
