@@ -5,7 +5,7 @@ from bluesky_tiled_plugins.writing.validator import validate
 from dotenv import load_dotenv
 import os
 
-BEAMLINE_OR_ENDSTATION = "!!! Set the endstation or beamline_TLA here !!!"
+BEAMLINE_OR_ENDSTATION = "qas"
 
 
 def get_api_key_from_env(api_key=None):
@@ -31,6 +31,15 @@ def get_run_migration(uid, api_key=None):
         api_key = get_api_key_from_env()
     cl = from_uri("https://tiled.nsls2.bnl.gov", api_key=api_key)
     run = cl[f"{BEAMLINE_OR_ENDSTATION}/migration"][uid]
+    return run
+
+
+@task(retries=2, retry_delay_seconds=10)
+def get_run_processed(uid, api_key=None):
+    if not api_key:
+        api_key = get_api_key_from_env()
+    cl = from_uri("https://tiled.nsls2.bnl.gov", api_key=api_key)
+    run = cl[f"{BEAMLINE_OR_ENDSTATION}/processed"][uid]
     return run
 
 
