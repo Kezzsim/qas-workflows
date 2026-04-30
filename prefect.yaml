@@ -31,6 +31,6 @@ deployments:
           - /nsls2/data/qas-new/proposals:/nsls2/data/qas-new/proposals
           - /srv/prefect3-docker-worker-qas/app:/srv
         container_create_kwargs:
-          userns_mode: "keep-id:uid=402xxx,gid=402xxx"
+          userns_mode: "keep-id:uid=402951,gid=402951"
         auto_remove: true
       name: qas-work-pool-docker
