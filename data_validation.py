@@ -35,6 +35,15 @@ def get_run_migration(uid, api_key=None):
 
 
 @task(retries=2, retry_delay_seconds=10)
+def get_run_processed(uid, api_key=None):
+    if not api_key:
+        api_key = get_api_key_from_env()
+    cl = from_uri("https://tiled.nsls2.bnl.gov", api_key=api_key)
+    run = cl[f"{BEAMLINE_OR_ENDSTATION}/processed"][uid]
+    return run
+
+
+@task(retries=2, retry_delay_seconds=10)
 def read_stream(run, stream):
     return run[stream].read()
 
