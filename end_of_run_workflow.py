@@ -10,6 +10,9 @@ from data_validation import data_validation, get_run, get_run_processed
 # QAS Application Specific
 from xas.process import process_interpolate_bin_with_tiled
 
+# QAS Application Specific
+from xas.process import process_interpolate_bin_with_tiled
+
 CATALOG_NAME = "qas"
 
 
