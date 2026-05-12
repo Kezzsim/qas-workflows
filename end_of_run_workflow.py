@@ -71,6 +71,7 @@ def slack(func):
 
     return end_of_run_workflow
 
+
 @task
 def log_completion(dry_run=False):
     logger = get_run_logger()
