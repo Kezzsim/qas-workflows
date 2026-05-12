@@ -15,7 +15,7 @@ CATALOG_NAME = "qas"
 
 def slack(func):
     """
-    Send a message to mon-prefect and mon-prefect-im slack channels if the flow-run failed.
+    Send a message to mon-prefect and mon-prefect-spec slack channels if the flow-run failed.
     Send a message to mon-prefect-qas slack channel with the flow-run status.
     Send a message to mon-bluesky slack channel if the bluesky-run failed.
 
@@ -31,7 +31,7 @@ def slack(func):
         mon_prefect = SlackWebhook.load("mon-prefect")
         mon_bluesky = SlackWebhook.load("mon-bluesky")
         mon_prefect_qas = SlackWebhook.load("mon-prefect-qas")
-        mon_prefect_im = SlackWebhook.load("mon-prefect-im")
+        mon_prefect_spec = SlackWebhook.load("mon-prefect-spec")
 
         # Get the uid.
         uid = stop_doc["run_start"]
@@ -65,12 +65,12 @@ def slack(func):
             mon_prefect.notify(message)
             mon_prefect_qas.notify(message)
             flow_run = FlowRunContext.get().flow_run
-            # Add link to flow-run for the message to mon-prefect-im.
+            # Add link to flow-run for the message to mon-prefect-spec.
             program_message = (
                 f":bangbang: {CATALOG_NAME} flow-run failed. <https://{PREFECT_UI_URL.value()}/flow-runs/"
                 + f"flow-run/{flow_run.id}|the flow run link> (*{flow_run_name}*)\n ```run_start: {uid}\nscan_id: {scan_id}``` ```{tb[-1]}```"
             )
-            mon_prefect_im.notify(program_message)
+            mon_prefect_spec.notify(program_message)
             raise
 
     return end_of_run_workflow
