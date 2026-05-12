@@ -10,9 +10,6 @@ from data_validation import data_validation, get_run, get_run_processed
 # QAS Application Specific
 from xas.process import process_interpolate_bin_with_tiled
 
-# QAS Application Specific
-from xas.process import process_interpolate_bin_with_tiled
-
 CATALOG_NAME = "qas"
 
 
@@ -38,10 +35,6 @@ def slack(func):
 
         # Get the uid.
         uid = stop_doc["run_start"]
-
-        # Get Tiled API key, if not set already
-        if not api_key:
-            api_key = get_api_key_from_env()
 
         # Get the scan_id.
         run = get_run(uid, api_key=api_key)
