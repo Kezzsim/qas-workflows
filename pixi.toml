@@ -11,4 +11,4 @@ prefect-docker = "*"
 bluesky-tiled-plugins = ">=2.0.2"
 
 [pypi-dependencies]
-xas = { git = "https://github.com/NSLS2/qas-xas.git", rev = "0a8a9f2" }
+xas = { git = "https://github.com/NSLS2/qas-xas.git", rev = "b799a66" }
