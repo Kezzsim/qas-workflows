@@ -5,7 +5,7 @@ from prefect.blocks.notifications import SlackWebhook
 from prefect.context import FlowRunContext
 from prefect.settings import PREFECT_UI_URL
 
-from data_validation import get_run, get_run_processed
+from data_validation import get_run, get_client_processed
 
 # QAS Application Specific
 from xas.process import process_interpolate_bin_with_tiled
