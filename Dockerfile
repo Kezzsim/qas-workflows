@@ -15,6 +15,9 @@ RUN pixi shell-hook -s bash > /shell-hook
 
 ENV PYTHONUNBUFFERED=1
 
+# below used to prevent qas-xas from writing a log file
+ENV TEST=true
+
 COPY default.py .
 
 RUN mkdir /etc/tiled
