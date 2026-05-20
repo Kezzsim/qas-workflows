@@ -6,9 +6,9 @@ platforms = ["linux-64"]
 [dependencies]
 prefect = "3.*"
 python = "<3.14"
-tiled = ">=0.2.8"
+tiled-client = ">=0.2.8"
 prefect-docker = "*"
 bluesky-tiled-plugins = ">=2.0.2"
 
 [pypi-dependencies]
-xas = { git = "https://github.com/NSLS2/qas-xas.git", rev = "b799a66" }
+xas = { git = "https://github.com/NSLS2/qas-xas.git", rev = "f6582e9" }
