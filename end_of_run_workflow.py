@@ -84,6 +84,8 @@ def end_of_run_workflow(stop_doc, api_key=None, dry_run=False):
     uid = stop_doc["run_start"]
     # Processing goes here
     run = get_run(uid, api_key=api_key)
+    # numpy has issues slicing these arrays so do not read
+    run.validate(raise_on_error=True)
     client_processed = get_client_processed(api_key=api_key)
     process_interpolate_bin_with_tiled(run, client_processed)
     log_completion(dry_run=dry_run)
