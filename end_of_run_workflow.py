@@ -5,7 +5,7 @@ from prefect.blocks.notifications import SlackWebhook
 from prefect.context import FlowRunContext
 from prefect.settings import PREFECT_UI_URL
 
-from data_validation import get_run, get_client_processed
+from data_validation import get_run_migration, get_client_processed
 
 # QAS Application Specific
 from xas.process import process_interpolate_bin_with_tiled
@@ -37,7 +37,7 @@ def slack(func):
         uid = stop_doc["run_start"]
 
         # Get the scan_id.
-        run = get_run(uid, api_key=api_key)
+        run = get_run_migration(uid, api_key=api_key)
         scan_id = run.start["scan_id"]
 
         # Send a message to mon-bluesky if bluesky-run failed.
@@ -83,7 +83,7 @@ def log_completion(dry_run=False):
 def end_of_run_workflow(stop_doc, api_key=None, dry_run=False):
     uid = stop_doc["run_start"]
     # Processing goes here
-    run = get_run(uid, api_key=api_key)
+    run = get_run_migration(uid, api_key=api_key)
     # numpy has issues slicing these arrays so do not read
     run.validate(raise_on_error=True)
     client_processed = get_client_processed(api_key=api_key)
