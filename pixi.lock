@@ -426,7 +426,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/40/50/045c391b57435e8912c47d7f7b2c12fd6a320e33cf69f986704e6ae55e75/bluesky_tiled_plugins-2.0.5-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fb/32/e31e3363bf48ad2ba80b644b01ad9676ce154f1b755950de81eb4ed5b6bd/event_model-1.23.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ce/33/7ce3f09d91a0ca5db7cca67671d865b7c8310b8b59eff287a711919641f0/mongoquery-1.4.3-py3-none-any.whl
-      - pypi: git+https://github.com/NSLS2/qas-xas.git?rev=12c719a#12c719ae366cf60ce2af9d34d3161fddf2a4c08f
+      - pypi: git+https://github.com/NSLS2/qas-xas.git?rev=3ea08ba#3ea08baeba27af0dd6b495a59603b2505320a371
       - pypi: https://files.pythonhosted.org/packages/f5/5f/f17563f28ff03c7b6799c50d01d5d856a1d55f2676f537ca8d28c7f627cd/scipy-1.17.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
@@ -6193,9 +6193,9 @@ packages:
   - pkg:pypi/xarray?source=hash-mapping
   size: 1017999
   timestamp: 1776122774298
-- pypi: git+https://github.com/NSLS2/qas-xas.git?rev=12c719a#12c719ae366cf60ce2af9d34d3161fddf2a4c08f
+- pypi: git+https://github.com/NSLS2/qas-xas.git?rev=3ea08ba#3ea08baeba27af0dd6b495a59603b2505320a371
   name: xas
-  version: 0.post83+g12c719a
+  version: 0.post85+g3ea08ba
   requires_dist:
   - scipy>=1.17.1,<2
 - conda: https://conda.anaconda.org/conda-forge/linux-64/xkeyboard-config-2.47-hb03c661_0.conda

@@ -11,5 +11,5 @@ tiled = ">=0.2.11"
 
 
 [pypi-dependencies]
-xas = { git = "https://github.com/NSLS2/qas-xas.git", rev = "12c719a" }
+xas = { git = "https://github.com/NSLS2/qas-xas.git", rev = "3ea08ba" }
 bluesky-tiled-plugins = ">=2.0.5"
